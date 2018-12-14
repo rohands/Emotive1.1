@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="{% static "analyse/dashboard.js" %}"></script>
+</head>
+<body onload="init()">
+
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-unchecked"></a>
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Rohan Doddaiah Shylaja<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Profile</a></li>
+      <li><a href="#">Account</a></li>
+      <li><a href="#">Settings</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+    	<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;background-color:lavender;">
+		  <div class="container-fluid">
+		  	<center><b><p>Enter all values, click on update, edit messages if required and click on send</p></b></center>
+
+		  	<div class="form-group">
+		      <label for="phone">Customer Phone Number</label>
+		      <input type="tel" class="form-control" id="phone" onfocus="clearAll()">
+		    </div><br>
+		   
+		   <form id="radio_buttons">
+		    <label class="radio-inline">
+		      <input type="radio" name="product_type" value="Lime" onfocus="clearAll()"><b>Lime</b>
+		    </label>
+		    <label class="radio-inline">
+		      <input type="radio" name="product_type" value="Cherry" onfocus="clearAll()"><b>Cherry</b>
+		    </label>
+		    <label class="radio-inline">
+		      <input type="radio" name="product_type" value="Vanilla" onfocus="clearAll()"><b>Vanilla</b>
+		    </label>
+		  </form>
+		   <br>
+
+		    <div class="form-group">
+		      <label for="name">Customer Name</label>
+		      <input type="text" class="form-control" id="name" onfocus="clearAll()">
+		    </div>
+
+		   <center><button type="button" class="btn btn-success" id="update_fields" onclick="updateEntries()">Update entries</button></center> <br>
+		   
+		   
+		    
+		    <p></p> 
+		  </div>
+		</div>
+    </div>
+    <div class="col-sm-9">
+    	<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s;background-color:lavenderblush;">
+		  <div class="container-fluid">
+
+		  	<div class="form-group">
+		      <center><label for="usr"><h4>First Automated Message</h4></label></center>
+		      <input type="text" class="form-control" id="first_message" readonly><br>
+		      <center><button id="btn_first" type="button" class="btn btn-primary btn-sm" onclick="enable(first_message)" disabled>Edit</button></center>
+		    </div><br>
+
+		    <div class="form-group">
+		      <center><label for="usr"><h4>If Positive Response </h4><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a> </label></center>
+		      <input type="text" class="form-control" id="positive_message" readonly><br>
+		      <center><button id="btn_pos" type="button" class="btn btn-primary btn-sm" onclick="enable(positive_message)" disabled>Edit</button></center>
+		    </div><br>
+
+		    <div class="form-group">
+		      <center><label for="usr"><h4>If Negative Response</h4> <a href="#"><span class="glyphicon glyphicon-thumbs-down"></span></a></label></center>
+		      <input type="text" class="form-control" id="negative_message" readonly><br>
+		      <center><button id="btn_neg" type="button" class="btn btn-primary btn-sm" onclick="enable(negative_message)" disabled>Edit</button></center>
+		    </div><br>
+		   
+		    <center><button type="button" class="btn btn-primary btn-block" id="send_sms" disabled onclick="textHim()">Send SMS</button></center><br>
+		    <p></p> 
+		  </div>
+		</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
