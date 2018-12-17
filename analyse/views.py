@@ -9,6 +9,7 @@ import requests
 import json
 
 
+#Should be moved to another config file, exposing API key not a nest practice!
 account_sid = "ACcb73e44e38653e08f174446161e4c276"
 auth_token  = "6f60d9fffbac16025702d41d4d0f37b4"
 

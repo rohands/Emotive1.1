@@ -1,1 +1,0 @@
-web: gunicorn emotiveapp.wsgi --log-file -
